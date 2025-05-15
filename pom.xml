@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.product</groupId>
-	<artifactId>01-SB-JE-data-jpa-product</artifactId>
+	<artifactId>03-SB-JE-REST_API-product</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>01-SB-JE-data-jpa-product</name>
-	<description>Demo project for Spring Boot-data-jpa</description>
+	<name>03-SB-JE-REST_API-product</name>
+	<description>project for Spring 03-SB-JE-REST_API-product</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -48,6 +48,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.product</groupId>
+			<artifactId>01-SB-JE-data-jpa-product</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

@@ -14,17 +14,19 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	public void create(Product product) {
+	public Product create(Product product) {
 		
-		productRepository.save(product);
+		return productRepository.save(product);
+		
 		
 	}
 	
-	public void fetch(Integer id) {
+	public Product fetch(Integer id) {
 		Optional<Product> optional = productRepository.findById(id);
 		if(optional.isPresent()) {
 		Product db = optional.get();
 		System.out.println(db.getName());
+		return db;
 		}
 		else {
 			 
@@ -34,6 +36,13 @@ public class ProductService {
 	}
 	
 	public void update(Product product) {
+		
+    Product dbProduct = fetch(product.getId());
+    dbProduct.setId(product.getId());
+    dbProduct.setName(product.getName());
+    dbProduct.setPrice(product.getPrice());
+    dbProduct.setDescription(product.getDescription());
+    dbProduct.setActive(product.isActive());
 		productRepository.save(product);
 	}
 	

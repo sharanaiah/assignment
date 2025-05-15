@@ -1,9 +1,16 @@
 package com.product.entity;
 
+import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -13,18 +20,26 @@ public class Product {
 	
 	private String name;
 	
-	private String brand;
+	private Double price;
+	
+	private boolean active;
+	
+	private String description;
+	
+	
+	@ManyToOne
+	@JoinColumn( name ="Category_id", nullable = false)
+	private Category category;
+	
+	@CreationTimestamp
+	private Date createdTime;
+	
+	@UpdateTimestamp
+	private Date updatedTime;
 
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Product(Integer id, String name, String brand) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.brand = brand;
 	}
 
 	public Integer getId() {
@@ -43,14 +58,46 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getBrand() {
-		return brand;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(Date updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
 	
 
 }
